@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Jan 2024 pada 03.11
+-- Waktu pembuatan: 10 Jan 2024 pada 05.52
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ppabaru`
+-- Database: `ptppa`
 --
 
 -- --------------------------------------------------------
@@ -45,7 +45,8 @@ INSERT INTO `akun` (`idakun`, `idlevel`, `iddepartemen`, `nama`, `NRP`, `passwor
 (1, 1, 1, 'Rizki Ramadhan', '22003265', '$2y$10$EXvWAbPfwk/RjhjMsW2vne1AB.DLnkqOINArmENvKl8K3MmAaM8hi', 'img659a66f802483_1704617720'),
 (2, 9, 1, 'Agus Eka Prasetya', '19019548', '$2y$10$wFHVy0F0Ax0a7FG.5OtSnOG8/hqA4KyvsWwirpYw9ePeeA.mqVeRy', 'img659a6ef333180_1704619763'),
 (3, 3, 19, 'Fidi Fitriadhi', '22004514', '$2y$10$3Iv2TGcxPuHUpzb1z8FMEe7WM.JgFXFMRm0TqB1AGvcSEfUwKLXeO', 'img659a6eade8b7b_1704619693'),
-(4, 10, 1, 'Dina Hapizah', '048089', '$2y$10$A31ykXEO62osi5qnEnll4uQZ3/54tk/6vBtyy3a0uPyWuYQc/3mLe', '');
+(4, 10, 1, 'Dina Hapizah', '048089', '$2y$10$A31ykXEO62osi5qnEnll4uQZ3/54tk/6vBtyy3a0uPyWuYQc/3mLe', ''),
+(62, 1, 3, 'Regina Putri', '048088', '$2y$10$nhVl7F05dknFqJmNQh3wXeBl1/dc320GzbuTJxDPufkmgTnYTbxY.', '');
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,8 @@ INSERT INTO `departemen` (`iddepartemen`, `namadepartemen`, `divisi`) VALUES
 (4, 'HCGA', 'GA'),
 (5, 'Center Of Excellent', 'CCR'),
 (18, 'Center of Excellent', 'Enggineering'),
-(19, 'Center Of Excellence', 'Dispatch');
+(19, 'Center Of Excellence', 'Dispatch'),
+(20, 'Center of Excellent', 'DIspath Operation');
 
 -- --------------------------------------------------------
 
@@ -96,7 +98,12 @@ INSERT INTO `history` (`idhistory`, `idakun`, `id_permohonan`, `id_status_lapora
 (37, 2, 56, 2, '2024-01-08 08:13:00', 'set 1', 12),
 (38, 3, 56, 4, '2024-01-08 08:14:01', 'Set 2', 21),
 (39, 2, 54, 2, '2024-01-08 08:15:10', '1', 12),
-(40, 3, 54, 4, '2024-01-08 08:31:12', '2', 21);
+(40, 3, 54, 4, '2024-01-08 08:31:12', '2', 21),
+(41, 2, 60, 2, '2024-01-10 03:38:03', 'testing 1', 12),
+(42, 2, 59, 2, '2024-01-10 03:39:28', '', 12),
+(43, 2, 58, 3, '2024-01-10 03:39:57', 'tolak 1', 13),
+(44, 3, 60, 4, '2024-01-10 03:46:34', 'testing 2', 21),
+(45, 3, 59, 3, '2024-01-10 03:47:29', 'tolak 2', 22);
 
 -- --------------------------------------------------------
 
@@ -176,7 +183,10 @@ INSERT INTO `list_item` (`id_item`, `id_permohonan`, `nama_barang`, `kuantitas`,
 (53, '54', 'Kursi Kerja Olympic', 12, 'Set', 'Stok Perlengkapan Kantor', '2024-01-01'),
 (57, '56', 'Nasi Kotak', 10, 'kotak', 'Meeting Bulanan', '2024-01-09'),
 (58, '56', 'Air Mineral', 12, 'Dus', 'Meeting Bulanan', '2024-01-07'),
-(59, '56', 'Teh kotak', 12, 'Dus', 'Meeting Bulanan', '2024-01-09');
+(59, '56', 'Teh kotak', 12, 'Dus', 'Meeting Bulanan', '2024-01-09'),
+(62, '58', 'Air Mineral', 10, 'Kotak', 'Meeting Bulanan', '2024-01-11'),
+(63, '59', 'Air Mineral', 10, 'Kotak', 'induksi', '2024-01-12'),
+(64, '60', 'buku', 10, 'Dus', 'seminar', '2024-01-12');
 
 -- --------------------------------------------------------
 
@@ -201,7 +211,10 @@ CREATE TABLE `permohonan` (
 
 INSERT INTO `permohonan` (`id_permohonan`, `idakun`, `iddepartemen`, `no_surat`, `created_date`, `catatan`, `id_status_laporan`, `alasan`) VALUES
 (54, 1, 1, '54/HCGA/PPA-GRYA/RKB/I/2024', '2024-01-08 08:31:12', 'Diantar ke Main Office ubah ya', 4, '2'),
-(56, 1, 1, '56/HCGA/PPA-GRYA/RKB/I/2024', '2024-01-08 08:14:01', 'Diantar ke Main Office update', 4, 'Set 2');
+(56, 1, 1, '56/HCGA/PPA-GRYA/RKB/I/2024', '2024-01-08 08:14:01', 'Diantar ke Main Office update', 4, 'Set 2'),
+(58, 1, 1, '57/HCGA/PPA-GRYA/RKB/I/2024', '2024-01-10 03:39:57', '', 3, 'tolak 1'),
+(59, 1, 1, '59/HCGA/PPA-GRYA/RKB/I/2024', '2024-01-10 03:47:29', 'Diantar ke Main Office', 3, 'tolak 2'),
+(60, 1, 1, '60/HCGA/PPA-GRYA/RKB/I/2024', '2024-01-10 03:46:34', 'Peruntukkan Stok Perlengkapan Komputer SS6', 4, 'testing 2');
 
 -- --------------------------------------------------------
 
@@ -292,19 +305,19 @@ ALTER TABLE `status_laporan`
 -- AUTO_INCREMENT untuk tabel `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `idakun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `idakun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT untuk tabel `departemen`
 --
 ALTER TABLE `departemen`
-  MODIFY `iddepartemen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `iddepartemen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `history`
 --
 ALTER TABLE `history`
-  MODIFY `idhistory` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `idhistory` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT untuk tabel `level`
@@ -322,13 +335,13 @@ ALTER TABLE `level_persetujuan`
 -- AUTO_INCREMENT untuk tabel `list_item`
 --
 ALTER TABLE `list_item`
-  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT untuk tabel `permohonan`
 --
 ALTER TABLE `permohonan`
-  MODIFY `id_permohonan` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_permohonan` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT untuk tabel `status_laporan`

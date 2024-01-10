@@ -157,7 +157,7 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="password" placeholder="password" autocomplete="off">
+                        <input class="input100" type="Password" name="Password" placeholder="Password" autocomplete="off">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
