@@ -156,7 +156,7 @@
                                                 <td><?= $nama ?></td>
                                                 <td><?= $divisi ?></td>
                                                 <td class="btnlist">
-                                                    <a href="<?php echo base_url('Laporanms/view_history/'.$id_permohonan) ?>" class="btn btn-info"><i class="nav-icon fas fa-eye" title="Detail Laporan"></i>
+                                                    <a target="_blank" href="<?php echo base_url('Laporanms/view_history/'.$id_permohonan) ?>" class="btn btn-info"><i class="nav-icon fas fa-eye" title="Detail Laporan"></i>
                                                     </a>
                                                 </td>
                                             </tr>
