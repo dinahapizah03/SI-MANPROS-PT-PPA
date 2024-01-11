@@ -175,7 +175,7 @@
                                             <th>Nama</th>
                                             <th>NRP</th>
                                             <th>Level</th>
-                                            <th>Departemen</th>
+                                            <th>Divisi</th>
                                             <th>Aksi</th>
                                             </tr>
                                         </thead>

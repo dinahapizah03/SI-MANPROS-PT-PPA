@@ -135,7 +135,7 @@
                                             <th>Tanggal Pengajuan</th>
                                             <th>NRP</th>
                                             <th>Pengaju</th>
-                                            <th>Departemen</th>
+                                            <th>Divisi</th>
                                             <th>Aksi</th>
                                             </tr>
                                         </thead>

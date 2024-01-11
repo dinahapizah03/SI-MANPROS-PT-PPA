@@ -219,7 +219,7 @@
                                             <th>Tanggal Pengajuan</th>
                                             <th>Pengaju</th>
                                             <th>Nomor Surat</th>
-                                            <th>Departemen</th>
+                                            <th>Divisi</th>
                                             <th>Catatan</th>
                                             <th>Status Laporan</th>
                                             <th>Alasan</th>

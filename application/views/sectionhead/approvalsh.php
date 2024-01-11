@@ -157,7 +157,7 @@
                                             <th>Tanggal Pengajuan</th>
                                             <th>NRP</th>
                                             <th>Pengaju</th>
-                                            <th>Departemen</th>
+                                            <th>Divisi</th>
                                             <th>Status Laporan</th>
                                             <th>Alasan</th>
                                             <th>Aksi</th>

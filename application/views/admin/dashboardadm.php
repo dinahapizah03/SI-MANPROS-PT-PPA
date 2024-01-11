@@ -67,7 +67,7 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                <h3><span><?= $this->db->count_all_results('permohonan'); ?></span></h3>
+                                <h3><span id="totalpermohonan"></span></h3>
                                     <p>Laporan yang diajukan</p>
                                 </div>
                                 <div class="icon">
@@ -115,5 +115,7 @@
     setTimeout(() => {
         img.style = 'display: none'
     },2200)
+    let data = JSON.parse('<?=$permohonan?>')
+    $("#totalpermohonan").html(data.length)
 </script>
 </html>
