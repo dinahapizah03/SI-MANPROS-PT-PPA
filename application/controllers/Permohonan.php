@@ -44,6 +44,7 @@ class Permohonan extends CI_Controller {
         $data['permohonan'] = $this->Permohonan_m->permohonan($idakun);
         $nrp = $this->session->userdata('NRP');
         $data['nrp'] = $nrp;
+        $data['idakun'] = $idakun;
         $data['list_item'] = $this->Permohonan_m->get_semua_barang();
         $data['last'] = $this->Permohonan_m->get_last_permohonan();
         $data['month'] = getMonth(date("m"));

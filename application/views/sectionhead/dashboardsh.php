@@ -71,7 +71,7 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                <h3><span><?= $this->db->count_all_results('permohonan'); ?></span></h3>
+                                <h3><span id="totallaporan"></span></h3>
 
                                     <p>Laporan Baru</p>
                                 </div>
@@ -87,7 +87,7 @@
                             <!-- small box -->
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                <h3><span><?= $count_complete; ?></span></h3>
+                                <h3><span id="laporancomplete"></span></h3>
 
                                     <p>Laporan Complete</p>
                                 </div>
@@ -103,7 +103,7 @@
                             <!-- small box -->
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                <h3><span><?= $count_ditolak; ?></span></h3>
+                                <h3><span id="laporantolak"></span></h3>
 
                                     <p>Laporan Ditolak</p>
                                 </div>
@@ -173,5 +173,11 @@
     setTimeout(() => {
         img.style = 'display: none'
     },2200)
+
+    let totallaporan = '<?=json_encode($laporan)?>'
+    $('#totallaporan').html(JSON.parse(totallaporan).length)
+    
+    $('#laporancomplete').html(<?=$count_complete?>)
+    $('#laporantolak').html(<?=$count_ditolak?>)
 </script>
 </html>

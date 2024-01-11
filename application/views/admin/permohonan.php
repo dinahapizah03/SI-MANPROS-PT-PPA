@@ -354,7 +354,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form class="row g-3" id="myForm" action="<?=base_url();?>Permohonan/edit"
+                                                    <form class="row g-3" id="myFormEdit" action="<?=base_url();?>Permohonan/edit"
                                                         method="POST">
                                                         <input type="text" name="id_permohonan_edit" id="id_permohonan_edit"
                                                             value="" hidden>
@@ -663,6 +663,7 @@
                 arrayItem = JSON.parse(arrayItem)
             }
             arrayItem.push(data)
+
             localStorage.setItem('list-item', JSON.stringify(arrayItem))
             refreshTable()
             $('#nama_barang').val("")
@@ -842,10 +843,8 @@
                 } else {
                     window.location.href="<?=base_url()?>Permohonan/success_message"
                 }
-                // console.log(data)
             }
         })
-        console.log(catatan, listitem, idpermohonan)
     })
 });
 </script>

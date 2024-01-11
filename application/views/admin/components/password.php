@@ -22,14 +22,12 @@
         justify-content: flex-end;
         padding-right: 1em;
     }
-     /* untuk mengatur tampilan modal agar lebih luas */
-     .modal-dialog{
-        width: 30%;
-    }
      /* pengaturan modal hapus */
      .changemdl{
-        max-width: 500px;
-        margin: 1.75rem auto;
+        width: 30%;
+    }
+    .changemdl .modal-footer{
+        padding-right: 1em;
     }
 </style>
 <?php if ($this->session->flashdata('input')) { ?>
