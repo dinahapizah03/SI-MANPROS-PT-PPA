@@ -60,11 +60,28 @@ class Akun_m extends CI_Model
         else
             return false;
     }   
+    public function get_nrp($idakun){
+        $this->db->select('akun.*');
+        $this->db->from('akun');
+        $this->db->where('idakun', $idakun);
+        return $this->db->get()->row();
+    }
     
     // untuk mengupdate password pada akun karyawan
-    public function update_password($where, $data)
+    public function reset_password($idakun)
     {
-        $this->db->where($where);
-        return $this->db->update('akun', $data);
+        $nrp = $this->get_nrp($idakun)->NRP;
+        $newpass = password_hash($nrp, PASSWORD_DEFAULT);
+        $this->db->set('password', $newpass);
+        $this->db->where('idakun', $idakun);
+        $this->db->update('akun');
+        return true;
+    }
+    
+    public function update_password($idakun, $password){
+        $this->db->set('password', $password);
+        $this->db->where('idakun', $idakun);
+        $this->db->update('akun');
+        return true;
     }
 }

@@ -140,16 +140,36 @@
                 <td>
                     <div>
                         <p class="bot">Dibuat Oleh : </p>
-                        <img src="<?=base_url()?>uploads/<?=$ttd_gl->ttd?>.png" alt="ttd">
-                        <p><?=$ttd_gl->nama?></p>
+                        <?php
+                            if($ttd_gl){
+                                ?>
+                                <img src="<?=base_url()?>uploads/<?=$ttd_gl?>.png" alt="ttd">
+                                <?php
+                            } else {
+                                ?>
+                                    <br/><br/><br/>
+                                <?php
+                            } 
+                        ?>
+                        <p><?=$nama_gl?></p>
                         <p><strong>Group Leader</strong></p>
                     </div>
                 </td>
                 <td>
                     <div>
                         <p class="bot">Disetujui Oleh : </p>
-                        <img src="<?=base_url()?>uploads/<?=$ttd_sh->ttd?>.png" alt="ttd">
-                        <p><?=$ttd_sh->nama?></p>
+                        <?php
+                            if($ttd_sh){
+                                ?>
+                                <img src="<?=base_url()?>uploads/<?=$ttd_sh?>.png" alt="ttd">
+                                <?php
+                            } else {
+                                ?>
+                                    <br/><br/><br/>
+                                <?php
+                            } 
+                        ?>
+                        <p><?=$nama_sh?></p>
                         <p><strong>Section Head</strong></p>
                     </div>
                 </td>

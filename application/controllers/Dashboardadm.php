@@ -17,6 +17,7 @@ class Dashboardadm extends CI_Controller
             $this->load->view('admin/components/navbar');
             $this->load->view('admin/dashboardadm');
             $this->load->view('admin/components/sidebar');
+            $this->load->view('admin/components/password');
         }else {
             redirect('Auth/Error');
         }

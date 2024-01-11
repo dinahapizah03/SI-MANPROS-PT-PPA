@@ -14,7 +14,7 @@ class Approval_m extends CI_Model
     }
 
     // untuk memanggil data approval / permohonan pada GL
-    public function approval()
+    public function approval($iddepartemen)
     {   
     $this->db->select('permohonan.*, akun.nama, akun.NRP, departemen.divisi, st.status as status_kata');
     $this->db->from('permohonan');
@@ -22,6 +22,7 @@ class Approval_m extends CI_Model
     $this->db->join('departemen', 'departemen.iddepartemen = permohonan.iddepartemen');
     $this->db->join('status_laporan as st', 'st.id_status_laporan = permohonan.id_status_laporan');
     $this->db->where('permohonan.id_status_laporan', '1');
+    $this->db->where('permohonan.iddepartemen', $iddepartemen);
     return $this->db->get()->result_array();
     }
 

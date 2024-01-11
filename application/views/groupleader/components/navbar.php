@@ -24,8 +24,8 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-                <i class="fas fa-wrench"></i>
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#changepassword">
+                <i class="fas fa-key"></i>
             </a>
         </li>
     </ul>

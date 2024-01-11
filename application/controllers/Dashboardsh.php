@@ -21,6 +21,7 @@ class Dashboardsh extends CI_Controller
             $this->load->view('sectionhead/components/navbar');
             $this->load->view('sectionhead/dashboardsh', $data); 
             $this->load->view('sectionhead/components/sidebar'); 
+            $this->load->view('sectionhead/components/password');
         }else {
             redirect('Auth/Error');
         }

@@ -3,19 +3,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Permohonan_m extends CI_Model {
     // untuk menampilkan data permohonan
-    public function permohonan()
+    public function permohonan($idakun)
     {
         $this->db->select('permohonan.*, akun.nama, departemen.divisi, st.status as status_kata' );
         $this->db->from('permohonan');
         $this->db->join('akun', 'akun.idakun = permohonan.idakun');
         $this->db->join('departemen', 'departemen.iddepartemen = permohonan.iddepartemen');
         $this->db->join('status_laporan as st', 'st.id_status_laporan = permohonan.id_status_laporan');
+        $this->db->where('permohonan.idakun', $idakun);
         return $this->db->get()->result_array(); // Execute the query and return results
     }
 
     // untuk mengambil gambar ttd
-     public function get_ttd($type, $id){
-        $this->db->select('akun.ttd, akun.nama');
+     public function get_ttd($get, $type, $id){
+        $this->db->select('akun.ttd, akun.nama, history.id_permohonan');
         $this->db->from('history');
         $this->db->join('akun', 'akun.idakun = history.idakun');
         $this->db->where('history.id_permohonan', $id);
@@ -23,8 +24,16 @@ class Permohonan_m extends CI_Model {
             $this->db->where('history.id_level_persetujuan', 12);
         } else if($type == 'section head'){
             $this->db->where('history.id_level_persetujuan', 21);
-        };
-        return $this->db->get()->row();
+        }; 
+        $data = $this->db->get()->row();
+        if($data){
+            if($get == 'ttd'){
+                return $data->ttd;
+            }
+            return $data->nama;
+        } else {
+            return '';
+        }
      }
 
      // untuk mengambil data departemen

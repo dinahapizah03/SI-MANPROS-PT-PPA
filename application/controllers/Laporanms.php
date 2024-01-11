@@ -21,6 +21,7 @@ class Laporanms extends CI_Controller
             $this->load->view('master/components/navbar'); 
             $this->load->view('master/laporanms', $data); 
             $this->load->view('master/components/sidebar');
+            $this->load->view('master/components/password');
         }else {
             redirect('Auth/Error');
         }
@@ -93,8 +94,10 @@ class Laporanms extends CI_Controller
          // Ambil data dari model Permohonan_model
          $data['permohonan'] = $this->Permohonan_m->get_data_by_id('permohonan', $id)->row();        
          $data['list_item'] = $this->Permohonan_m->get_data_by_id('list_item', $id)->result();
-         $data['ttd_sh'] = $this->Permohonan_m->get_ttd('section head', $id);
-         $data['ttd_gl'] = $this->Permohonan_m->get_ttd('group leader', $id);
+         $data['ttd_sh'] = $this->Permohonan_m->get_ttd('ttd','section head', $id);
+         $data['ttd_gl'] = $this->Permohonan_m->get_ttd('ttd', 'group leader', $id);
+         $data['nama_sh'] = $this->Permohonan_m->get_ttd('nama', 'section head', $id);
+         $data['nama_gl'] = $this->Permohonan_m->get_ttd('nama', 'group leader', $id);
          // Mengambil data list_item secara langsung
          $data['akun'] = $this->Permohonan_m->get_data_akun('akun', $id)->row();
          

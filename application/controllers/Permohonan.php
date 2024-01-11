@@ -40,7 +40,8 @@ class Permohonan extends CI_Controller {
                 return 'XII';
             }
         }
-        $data['permohonan'] = $this->Permohonan_m->permohonan();
+        $idakun = $this->session->userdata('idakun');
+        $data['permohonan'] = $this->Permohonan_m->permohonan($idakun);
         $nrp = $this->session->userdata('NRP');
         $data['nrp'] = $nrp;
         $data['list_item'] = $this->Permohonan_m->get_semua_barang();
@@ -53,6 +54,7 @@ class Permohonan extends CI_Controller {
             $this->load->view('admin/components/navbar');
             $this->load->view('admin/permohonan', $data);
             $this->load->view('admin/components/sidebar'); 
+            $this->load->view('admin/components/password');
         }else {
             redirect('Auth/Error');
         }

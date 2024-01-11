@@ -33,12 +33,19 @@
         border-radius: 1em 1em 0 0;
     }
     /* memindahkan button submit di modal menjadi ke sebelah kanan ujung*/
-    .modal-footer{
+    .modal_footer {
         flex: 1;
         display: flex;
         gap: 0;
         justify-content: flex-end;
+    }
+    /* modal akun */
+    .akunmdl {
         padding-right: 0;
+    }
+    /* jarak button */
+    .ml {
+        margin-left: .5em;
     }
     /* memindahkan button tambah barang di modal menjadi ke sebelah kanan ujung*/
     .rights{
@@ -225,11 +232,11 @@
                                                                             ini?</i></b></p>
                                                                     </div>
                                                                 </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-danger ripple"
+                                                                <div class="modal_footer akunmdl">
+                                                                    <button type="button" class="btn btn-danger ripple "
                                                                         data-dismiss="modal">Tidak</button>
                                                                     <button type="submit"
-                                                                        class="btn btn-success ripple save-category">Ya</button>
+                                                                        class="btn btn-success ripple save-category ml">Ya</button>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -303,7 +310,7 @@
                                                                             <label class="form-label" for="validationCustom01">TTD</label>
                                                                             <input type="file" class="form-control" name="ttd" size="20" id="validationCustom01" value="<?=$ttd?>">
                                                                         </div>
-                                                                    <div class="modal-footer">
+                                                                    <div class="modal_footer akunmdl">
                                                                     <button type="submit" class="btn btn-primary">Submit</button>
                                                                     </div>
                                                             </form>
@@ -311,7 +318,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- Modal Change Password Akun -->
+                                            <!-- Modal Reset Password Akun -->
                                             <div class="modal fade" id="changepassword<?= $idakun ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
@@ -322,20 +329,19 @@
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
-                                                        <form action="<?= base_url('Akun/edit_password') ?>" method="post" class="needs-validation" novalidate>
+                                                        <form action="<?= base_url('Akun/reset_password') ?>" method="post" class="needs-validation" novalidate>
                                                             <div class="modal-body">
-                                                                <!-- FORM Change -->
-                                                                <input type="hidden" class="form-control" name="idakun" placeholder="idakun" value="<?= $idakun ?>">
-                                                                
-                                                                <div class="form-group">
-                                                                        <label for="password">Password</label>
-                                                                        <input type="text" class="form-control" id="password" aria-describedby="password"
-                                                                            name="password" value="<?=$password?>">
-                                                                </div>
-                                                                <div class="modal-footer">
+                                                                <!-- FORM Reset -->
+                                                                <div class="col-md-12">
+                                                                        <input type="hidden" name="idakun"
+                                                                            value="<?php echo $idakun?>" />
+                                                                        <p>Apakah kamu yakin ingin mereset password
+                                                                            ini?</i></b></p>
+                                                                    </div>
+                                                                <div class="modal_footer akunmdl">
                                                                 <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
                                                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                                                                    <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+                                                                    <button type="submit" class="btn btn-success ml">Reset</button>
                                                                 </div>
                                                             </div>
                                                         </form>

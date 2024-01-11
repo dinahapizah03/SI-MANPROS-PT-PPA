@@ -21,6 +21,7 @@ class Departemen extends CI_Controller
             $this->load->view('master/components/navbar');
             $this->load->view('master/departemen', $data); 
             $this->load->view('master/components/sidebar'); 
+            $this->load->view('master/components/password');
         }else {
             redirect('Auth/Error');
         }

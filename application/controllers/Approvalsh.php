@@ -21,6 +21,7 @@ class Approvalsh extends CI_Controller
         $this->load->view('sectionhead/components/navbar'); 
         $this->load->view('sectionhead/approvalsh', $data); 
         $this->load->view('sectionhead/components/sidebar');
+        $this->load->view('sectionhead/components/password');
     }
 
     // method untuk approval proposal SH

@@ -53,6 +53,7 @@ class Auth extends CI_Controller
                     'idlevel' => $pengguna['idlevel'],
                     'nama' => $pengguna['nama'],
                     'idakun' => $pengguna['idakun'],
+                    'iddepartemen' => $pengguna['iddepartemen'],
                 ];
                 $this->session->set_userdata($data);
                 $this->session->set_userdata('idlevel', $pengguna['idlevel']);
@@ -86,16 +87,16 @@ class Auth extends CI_Controller
         }
     }
     // untuk menjelankan fungsi logout
-        public function logout()
-        {
-            $this->session->unset_userdata('logged_in');
-            $this->session->unset_userdata('idlevel');
-            $this->session->set_flashdata('success_logout','success_logout');
-            redirect('Auth');
-        }
+    public function logout()
+    {
+        $this->session->unset_userdata('logged_in');
+        $this->session->unset_userdata('idlevel');
+        $this->session->set_flashdata('success_logout','success_logout');
+        redirect('Auth');
+    }
 
-        // method untuk menammpilkan tampilan error 404 / validation
-        public function error()
+    // method untuk menammpilkan tampilan error 404 / validation
+    public function error()
     {   
         $this->load->view('Error'); 
     }

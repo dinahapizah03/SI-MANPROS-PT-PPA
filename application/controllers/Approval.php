@@ -16,13 +16,15 @@ class Approval extends CI_Controller
     // method untuk menampilkan halaman approval
     public function index()
     {
-        $data['approval'] = $this->Approval_m->approval();
+        $iddepartemen = $this->session->userdata('iddepartemen');
+        $data['approval'] = $this->Approval_m->approval($iddepartemen);
         $level = $this->session->userdata('idlevel');
         if ($level == '9'){
             $this->load->view('groupleader/components/header');
             $this->load->view('groupleader/components/navbar'); 
             $this->load->view('groupleader/approval', $data); 
             $this->load->view('groupleader/components/sidebar');
+            $this->load->view('groupleader/components/password');
         }else {
             redirect('Auth/Error');
         }

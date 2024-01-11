@@ -22,6 +22,7 @@ class Dashboard extends CI_Controller
             $this->load->view('groupleader/components/navbar');
             $this->load->view('groupleader/dashboard', $data); 
             $this->load->view('groupleader/components/sidebar');
+            $this->load->view('groupleader/components/password');
         }else {
             redirect('Auth/Error');
         }

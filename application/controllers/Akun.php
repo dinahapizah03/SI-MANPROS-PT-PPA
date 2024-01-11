@@ -24,6 +24,7 @@ class Akun extends CI_Controller
             $this->load->view('master/components/navbar');
             $this->load->view('master/akun', $data); 
             $this->load->view('master/components/sidebar'); 
+            $this->load->view('master/components/password');
         }else {
             redirect('Auth/Error');
         }
@@ -41,7 +42,7 @@ class Akun extends CI_Controller
         }
 		if ($this->session->userdata('NRP') AND $this->session->userdata('idlevel')) {
             $NRP = $this->input->post("NRP");
-            $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+            $password = password_hash($NRP, PASSWORD_DEFAULT);
             $nama = $this->input->post("nama");
             $idlevel = $this->input->post("idlevel");
             $iddepartemen = $this->input->post("iddepartemen");
@@ -53,7 +54,7 @@ class Akun extends CI_Controller
                     $original = pathinfo($_FILES['ttd']['name'], PATHINFO_EXTENSION);
                     $uploadFile = $uploadDir.$uniqname.'.'.$original;
                     if(move_uploaded_file($_FILES['ttd']['tmp_name'], $uploadFile)){
-                        $hasil = $this->Akun_m->insert_akun($id, $NRP, $password, $nama, $idlevel, $iddepartemen, $uniqname);
+                        $hasil = $this->Akun_m->insert_akun(null, $NRP, $password, $nama, $idlevel, $iddepartemen, $uniqname);
                         $this->session->set_flashdata('input','input');
                         redirect('akun', $data);
                     } else {
@@ -141,7 +142,7 @@ class Akun extends CI_Controller
         }       
     }
 
-     // -- method mengedit password -- //
+     // -- method reset password -- //
      public function edit_password()
      {
          $idakun = $this->input->post('idakun');
@@ -163,4 +164,43 @@ class Akun extends CI_Controller
              redirect('akun', $data);
          }
      }
+
+     // -- method change password -- //
+    public function change_password()
+    {
+        $passwordbaru = $this->input->POST('passwordbaru');
+        $konfirpassword = $this->input->POST('konfirpassword');
+        $hashpwbaru = password_hash($passwordbaru, PASSWORD_DEFAULT);
+        
+        $passwordlama = $this->input->POST('passwordlama');
+        $idakun = $this->session->userdata('idakun');
+        $NRP = $this->session->userdata('NRP');
+        $pengguna = $this->db->get_where('akun', ['NRP' => $NRP])->row_array();
+        if ($passwordbaru == $konfirpassword) {
+            if (password_verify($passwordlama, $pengguna['password'])){
+                $process = $this->Akun_m->update_password($idakun, $hashpwbaru);
+                if($process){
+                    $this->session->set_flashdata('edit','edit');
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            } else {
+                $this->session->set_flashdata('eror','eror');
+                redirect($_SERVER['HTTP_REFERER']);
+            }
+        } else {
+            $this->session->set_flashdata('eror','eror');
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+    public function reset_password(){
+        $idakun = $this->input->POST('idakun');
+        $proses = $this->Akun_m->reset_password($idakun);
+        if($proses > 0){
+            $this->session->set_flashdata('edit','edit');
+            redirect($_SERVER['HTTP_REFERER']);
+        } else {
+            $this->session->set_flashdata('eror','eror');
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
 }
