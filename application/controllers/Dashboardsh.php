@@ -12,9 +12,10 @@ class Dashboardsh extends CI_Controller
     //tampilan dashboard SH
     public function index()
     {
-        $data['laporan'] = $this->Laporan_m->laporan();
-        $data['count_complete'] = $this->Laporan_m->count_statuscomplete();
-        $data['count_ditolak'] = $this->Laporan_m->count_statusditolak();
+        $dept = $this->session->userdata('iddepartemen');
+        $data['laporan'] = $this->Laporan_m->laporan($dept);
+        $data['count_complete'] = $this->Laporan_m->count_statuscomplete($dept);
+        $data['count_ditolak'] = $this->Laporan_m->count_statusditolak($dept);
         $level = $this->session->userdata('idlevel');
         if ($level == '3'){
             $this->load->view('sectionhead/components/header');
