@@ -195,7 +195,7 @@
                                                     </a>
                                                     <a href="" data-toggle="modal" data-target="#Ditolak<?= $id_permohonan ?>" class="btn btn-danger"><i class="nav-icon fas fa-times" title="Tolak"></i>
                                                     </a>
-                                                    <a target="_blank" href="<?php echo base_url('Laporanms/print_laporan/'.$id_permohonan) ?>" class="btn btn-success"><i class="nav-icon fas fa-print" title="Print"></i>
+                                                    <a target="_blank" href="<?php echo base_url('Laporanms/print_surat/'.$id_permohonan) ?>" class="btn btn-success"><i class="nav-icon fas fa-print" title="Print"></i>
                                                     </a>
                                                 </td>
                                             </tr>

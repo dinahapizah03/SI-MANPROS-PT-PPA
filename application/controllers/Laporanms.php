@@ -14,7 +14,8 @@ class Laporanms extends CI_Controller
     // method untuk tampilan laporan
     public function index()
     {   
-        $data['laporan'] = $this->Laporan_m->laporan();
+        $dept = $this->session->userdata('iddepartemen');
+        $data['laporan'] = $this->Laporan_m->laporan($dept);
         $level = $this->session->userdata('idlevel');
         if ($level == '10'){
             $this->load->view('master/components/header');
@@ -29,7 +30,8 @@ class Laporanms extends CI_Controller
     // method untuk tampilan laporan GL
     public function group_leader()
     {   
-        $data['laporan'] = $this->Laporan_m->laporan();
+        $dept = $this->session->userdata('iddepartemen');
+        $data['laporan'] = $this->Laporan_m->laporan($dept);
         $level = $this->session->userdata('idlevel');
         if ($level == '9'){
             $this->load->view('master/components/header');
@@ -43,7 +45,8 @@ class Laporanms extends CI_Controller
     // method untuk tampilan laporan SH
     public function section_head()
     {   
-        $data['laporan'] = $this->Laporan_m->laporan();
+        $dept = $this->session->userdata('iddepartemen');
+        $data['laporan'] = $this->Laporan_m->laporan($dept);
         $level = $this->session->userdata('idlevel');
         if ($level == '3'){
             $this->load->view('master/components/header');
