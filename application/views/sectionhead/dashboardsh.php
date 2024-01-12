@@ -29,6 +29,16 @@
     .tbody{
         text-align:justify;
     }
+     /* untuk mengecilkan gambar dalam box dashboard */
+     .images {
+        width: 10em;
+    }
+    /* untuk mengatur luas box dashboard */
+    .small-box{
+        display: flex;
+        justify-content: space-between;
+        background: white;
+    }
 </style>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -69,49 +79,43 @@
                     <div class="row">
                         <div class="col-lg-4 col-8">
                             <!-- small box -->
-                            <div class="small-box bg-info">
+                            <div class="small-box">
                                 <div class="inner">
                                 <h3><span id="totallaporan"></span></h3>
 
                                     <p>Laporan Baru</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-document-text"></i>
+                                    <img class="images" src="<?= base_url()?>assets/login/images/pengajuan.svg" alt="ilustration"/>
                                 </div>
-                                <a href="" class="small-box-footer">More info <i
-                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
                         <div class="col-lg-4 col-8">
                             <!-- small box -->
-                            <div class="small-box bg-success">
+                            <div class="small-box">
                                 <div class="inner">
                                 <h3><span id="laporancomplete"></span></h3>
 
                                     <p>Laporan Complete</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-clipboard"></i>
+                                    <img class="images" src="<?= base_url()?>assets/login/images/complete.svg" alt="ilustration"/>
                                 </div>
-                                <a href="" class="small-box-footer">More info <i
-                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
                         <div class="col-lg-4 col-8">
                             <!-- small box -->
-                            <div class="small-box bg-danger">
+                            <div class="small-box">
                                 <div class="inner">
                                 <h3><span id="laporantolak"></span></h3>
 
                                     <p>Laporan Ditolak</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-clipboard"></i>
+                                    <img class="images" src="<?= base_url()?>assets/login/images/ditolak.svg" alt="ilustration"/>
                                 </div>
-                                <a href="" class="small-box-footer">More info <i
-                                        class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                     </div>
