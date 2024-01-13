@@ -3,6 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Laporan_m extends CI_Model
 {
+    // menampilkan data laporan
     public function laporan($dept)
     {
         $this->db->select('permohonan.*, akun.nama, akun.nrp, departemen.divisi' );
@@ -13,6 +14,7 @@ class Laporan_m extends CI_Model
         return $this->db->get()->result_array(); // Execute the query and return results
     }
     
+    // menampilkan history laporan
     public function history_laporan()
     {
         $this->db->select('permohonan.*, list_item.agenda, st.status as status_kata' );
@@ -24,14 +26,7 @@ class Laporan_m extends CI_Model
         return $this->db->get()->result_array(); // Execute the query and return results
     }
 
-    public function get_data_riwayat($table)
-    {
-        $this->db->select('*');
-        $this->db->from('laporan');
-        $this->db->where_not_in('id_status_laporan', 1);
-        return $this->db->get('');
-    }
-
+    // untuk mengambil data history
     public function get_history($id){
         $this->db->select('*');
         $this->db->from('history');
@@ -55,11 +50,6 @@ class Laporan_m extends CI_Model
     {
         $query = $this->db->get_where('laporan', ['idlaporan' => $id])->row_array();
         return $query;
-    }
-
-    public function detail_persetujuan($idlaporan) //getdata detail transaksi 
-    {
-        return $this->db->get_where('tlaporan', ['idlaporan' => $idlaporan])->result_array();
     }
     
     //menghitung status disetujui

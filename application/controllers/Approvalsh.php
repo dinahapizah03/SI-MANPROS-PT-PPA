@@ -16,12 +16,18 @@ class Approvalsh extends CI_Controller
     // method untuk tampilan approval SH
     public function index()
     {
-        $data['approval'] = $this->Approval_m->approval_sh();
-        $this->load->view('sectionhead/components/header');
-        $this->load->view('sectionhead/components/navbar'); 
-        $this->load->view('sectionhead/approvalsh', $data); 
-        $this->load->view('sectionhead/components/sidebar');
-        $this->load->view('sectionhead/components/password');
+        $dept = $this->session->userdata('iddepartemen');
+        $data['approval'] = $this->Approval_m->approval_sh($dept);
+        $level = $this->session->userdata('idlevel');
+        if ($level == '3'){
+            $this->load->view('sectionhead/components/header');
+            $this->load->view('sectionhead/components/navbar'); 
+            $this->load->view('sectionhead/approvalsh', $data); 
+            $this->load->view('sectionhead/components/sidebar');
+            $this->load->view('sectionhead/components/password');
+        }else {
+            redirect('Auth/Error');
+        }
     }
 
     // method untuk approval proposal SH

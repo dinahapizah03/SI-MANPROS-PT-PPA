@@ -27,15 +27,16 @@ class Approval_m extends CI_Model
     }
 
     // untuk memanggil data approval / permohonan pada SH
-    public function approval_sh()
+    public function approval_sh($dept)
     {
         $this->db->select('permohonan.*, akun.nama, akun.nrp, departemen.divisi, st.status as status_kata' );
         // $this->db->select('*');
         $this->db->from('permohonan');
         $this->db->join('akun', 'akun.idakun = permohonan.idakun');
         $this->db->join('departemen', 'departemen.iddepartemen = permohonan.iddepartemen');
-            $this->db->join('status_laporan as st', 'st.id_status_laporan = permohonan.id_status_laporan');
+        $this->db->join('status_laporan as st', 'st.id_status_laporan = permohonan.id_status_laporan');
         $this->db->where('permohonan.id_status_laporan', '2');
+        $this->db->where('permohonan.iddepartemen', $dept);
         return $this->db->get()->result_array(); // Execute the query and return results
     }
 
