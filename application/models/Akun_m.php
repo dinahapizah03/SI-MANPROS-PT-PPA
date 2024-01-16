@@ -3,6 +3,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Akun_m extends CI_Model
 {
+    // untuk menampilkan data akun
+    public function akun()
+    {   
+        $hasil = $this->db->query('SELECT * FROM akun JOIN level ON akun.idlevel = level.idlevel 
+        JOIN departemen ON akun.iddepartemen = departemen.iddepartemen 
+        WHERE akun.idlevel ORDER BY akun.NRP ASC');
+        return $hasil;
+    }
+
     // fungsi untuk mengambil semua data level
     public function get_all_level()
     {
@@ -26,15 +35,6 @@ class Akun_m extends CI_Model
             return true;
         else
             return false;
-    }
-    
-    // untuk menampilkan data akun
-    public function akun()
-    {   
-        $hasil = $this->db->query('SELECT * FROM akun JOIN level ON akun.idlevel = level.idlevel 
-        JOIN departemen ON akun.iddepartemen = departemen.iddepartemen 
-        WHERE akun.idlevel ORDER BY akun.NRP ASC');
-        return $hasil;
     }
 
     // untuk mengupdate data akun
@@ -60,26 +60,21 @@ class Akun_m extends CI_Model
         else
             return false;
     }   
-    public function get_nrp($idakun){
-        $this->db->select('akun.*');
-        $this->db->from('akun');
-        $this->db->where('idakun', $idakun);
-        return $this->db->get()->row();
-    }
     
-    // untuk mengupdate password pada akun karyawan
-    public function reset_password($idakun)
-    {
-        $nrp = $this->get_nrp($idakun)->NRP;
-        $newpass = password_hash($nrp, PASSWORD_DEFAULT);
-        $this->db->set('password', $newpass);
+    // untuk untuk mengupdate password pada akun karyawan
+    public function update_password($idakun, $password){
+        $this->db->set('password', $password);
         $this->db->where('idakun', $idakun);
         $this->db->update('akun');
         return true;
     }
     
-    public function update_password($idakun, $password){
-        $this->db->set('password', $password);
+    // untuk mereset password pada akun karyawan
+    public function reset_password($idakun)
+    {
+        $nrp = $this->get_nrp($idakun)->NRP;
+        $newpass = password_hash($nrp, PASSWORD_DEFAULT);
+        $this->db->set('password', $newpass);
         $this->db->where('idakun', $idakun);
         $this->db->update('akun');
         return true;

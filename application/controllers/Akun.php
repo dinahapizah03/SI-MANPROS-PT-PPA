@@ -142,29 +142,6 @@ class Akun extends CI_Controller
         }       
     }
 
-     // -- method reset password -- //
-     public function edit_password()
-     {
-         $idakun = $this->input->post('idakun');
-         $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
- 
-         $data = array(
-             'idakun' => $idakun,
-             'password' => $password,
-         );
-         $where = array(
-             'idakun' => $idakun,
-         );
-         $this->Akun_m->update_password($where, $data);
- 
-         if ($this->db->affected_rows() > 0) {
-             $this->session->set_flashdata('success', ' Password berhasil diedit.');
-             redirect('akun', $data);
-         } else {
-             redirect('akun', $data);
-         }
-     }
-
      // -- method change password -- //
     public function change_password()
     {
@@ -192,6 +169,8 @@ class Akun extends CI_Controller
             redirect($_SERVER['HTTP_REFERER']);
         }
     }
+
+    // method reset password
     public function reset_password(){
         $idakun = $this->input->POST('idakun');
         $proses = $this->Akun_m->reset_password($idakun);

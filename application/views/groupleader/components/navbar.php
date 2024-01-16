@@ -11,7 +11,7 @@
     <ul class="navbar-nav ml-auto">
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
+            <a class="nav-link" data-toggle="dropdown" href="#" title="Logout">
                 <i class="far fa-user"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -19,12 +19,12 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button" title="Fullscreen">
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="modal" data-target="#changepassword">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#changepassword" title="Change Password">
                 <i class="fas fa-key"></i>
             </a>
         </li>

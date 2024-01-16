@@ -204,7 +204,7 @@
                                                     </a>
                                                     <a href="<?php echo base_url('Akun/delete/') . $idakun ?>" data-toggle="modal" data-target="#delete<?= $idakun ?>"class="btn btn-danger"><i class="fas fa-trash" title="Hapus"></i>
                                                     </a>
-                                                    <a href="<?php echo base_url('Akun/edit_password/') . $idakun ?>" data-toggle="modal" data-target="#changepassword<?= $idakun ?>" class="btn btn-success" title="Change Password"><i class="fas fa-lock"></i></a>
+                                                    <a href="<?php echo base_url('Akun/edit_password/') . $idakun ?>" data-toggle="modal" data-target="#changepassword<?= $idakun ?>" class="btn btn-success" title="Reset Password"><i class="fas fa-lock"></i></a>
                                                 </td>
                                             </tr>
                                             <!-- Modal Hapus Data Akun -->
@@ -412,7 +412,7 @@
                                     </div>
                                 <div class="form-group">
                                     <label class="form-label" for="validationCustom01">TTD</label>
-                                    <input type="file" class="form-control" name="ttd" size="20" id="validationCustom01">
+                                    <input type="file" accept="image/png, image/jpeg" class="form-control" name="ttd" size="20" id="validationCustom01">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
