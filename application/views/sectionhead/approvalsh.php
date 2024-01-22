@@ -295,8 +295,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <?php endforeach; ?>
                                         </tbody>
-                                    <?php endforeach; ?>
                                     </table>
                                 </div>
                                 <!-- /.card-body -->
