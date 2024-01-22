@@ -382,7 +382,7 @@
                                                             </div>
                                                             <div class="col md-6">
                                                                 <label for="created_date">Kuantitas</label>
-                                                                <input type="text" class="form-control"
+                                                                <input type="number" min="0" class="form-control"
                                                                     id="kuantitas-edit" aria-describedby="kuantitas"
                                                                     name="kuantitas" required autocomplete="off">
                                                             </div>
@@ -404,7 +404,7 @@
                                                         <div class="row align-items-end">
                                                             <div class="col md-6">
                                                                 <label for="created_date">Tanggal Agenda</label>
-                                                                <input type="date" class="form-control"
+                                                                <input type="date" min="<?=date('Y-m-d');?>" class="form-control"
                                                                     id="agenda_date-edit" aria-describedby="agenda_date"
                                                                     name="agenda_date" required>
                                                             </div>
@@ -472,7 +472,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="kuantitas">Kuantitas / Jumlah</label>
-                                    <input type="text" class="form-control" id="kuantitas" placeholder="e.g. 1" required autocomplete="off">
+                                    <input type="number" min="0" class="form-control" id="kuantitas" placeholder="e.g. 1" required autocomplete="off">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="satuan">Satuan</label>
@@ -484,7 +484,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="agenda_date">Tanggal Agenda</label>
-                                    <input type="date" class="form-control" id="agenda_date" required>
+                                    <input type="date" min="<?=date('Y-m-d');?>" class="form-control" id="agenda_date" required>
                                 </div>
                                 <div class="d-flex align-items-end rights">
                                     <a  class="btn btn-info mb-3 btnadditem">Tambah Barang</a>
